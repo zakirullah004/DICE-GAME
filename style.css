@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 
+
 body{
     min-height: 100vh;
     display: grid;
@@ -13,7 +14,11 @@ body{
     font-family: "Arimo", sans-serif;
 }
 
-.main-game-wrapper{
+.bodyDark{
+    background: linear-gradient(#656464,#212121) !important;
+}
+
+#main-game-wrapper{
     height: 500px;
     width: 800px;
     border-radius: 10px;
@@ -22,12 +27,16 @@ body{
     justify-content: center;
     align-items: center;
     position: relative;
+    background-color:  rgb(125, 156, 206);
+    /* z-index: -1; */
 }
 
 .game-container{
     height: 100%;
     width: 100%;
-    background-color:  rgb(125, 156, 206);
+}
+.game-dark{
+    background-color: #707070 !important;
 }
 .left-container{
     flex: 1;
@@ -48,7 +57,9 @@ body{
 .active-player{
     background-color: rgb(40, 81, 148) !important;
 }
-
+.active-player-dark{
+    background-color:#abaaaa !important;
+}
 .playerNameCurrentScore{
     display: flex;
     flex-direction: column;
@@ -94,4 +105,73 @@ body{
 }
 .diceImageBox img{
     width: 60%;
+}
+
+
+nav{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content:end;
+    align-items: center;
+    align-self: stretch;
+    justify-self: stretch;
+    padding-top: 30px;
+    padding-right: 100px;
+    gap: 25px;
+}
+
+.themeBtn img{
+    width: 30px;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.settinBtn i{
+    font-size: 24px;
+     &:hover{
+        cursor: pointer;
+    }
+}
+
+
+.infoandNames{
+    background-color: rgb(255, 255, 255);
+    position:fixed;
+    height: 100vh;
+    top: 0;
+    width: 500px;
+    right:-800px;
+    z-index: 111;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 0px 10px;
+    transition: all .7s;
+}
+.infoandNames button{
+    width: 50%;
+    background-color: rgb(40, 81, 148);
+    color: whitesmoke;
+    border-radius: 10px;
+    border: none;
+    padding: 10px 20px;
+}
+.infoandNames input{
+    padding: 8px 15px;
+    border: 1px solid #323232;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+#crossSideBar{
+    /* position: absolute; */
+    padding:10px 0px;
+    font-size: 22px;
 }
