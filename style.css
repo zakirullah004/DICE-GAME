@@ -22,6 +22,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .game-container{
@@ -67,4 +68,31 @@ body{
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.game-options{
+    position: absolute;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.gameBtns{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.game-options button{
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    &:hover{
+        cursor: pointer;
+    }
+}
+.diceImage img{
+    width: 60%;
 }
