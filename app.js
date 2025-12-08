@@ -31,7 +31,7 @@ function rollDiceFun() {
             player1TempScore = 0;
             player1CurrentScore.textContent = 1;
             playerTurn = !playerTurn
-             diceImage.src = `./assets/${1}.webp`
+            diceImage.src = `./assets/${1}.webp`
             currentPlayer()
         }
     } else {
@@ -56,7 +56,7 @@ function holdDiceFun() {
         player1TotalScoreDom.textContent = player1TotalScore
 
         if (player1TotalScore >= 20) {
-            alert("player 1 win")
+            Swal.fire(`Player ${playerTurn + 0} Wins!`);
             disableGameBtns()
             return
         }
@@ -66,7 +66,7 @@ function holdDiceFun() {
         player2TotalScoreDom.textContent = player2TotalScore
 
         if (player2TotalScore >= 20) {
-            alert("player 2 win")
+            Swal.fire(`Player ${playerTurn + 0} Wins!`);
             disableGameBtns()
             return
         }
@@ -93,15 +93,15 @@ function disableGameBtns() {
 }
 
 
-function newGameFunc(){
-     document.querySelectorAll(".gameBtns button").forEach((btn) => {
+function newGameFunc() {
+    document.querySelectorAll(".gameBtns button").forEach((btn) => {
         btn.disabled = false;
     })
     playerTurn = true;
     currentPlayer()
     player1TempScore = 0
     player1TotalScore = 0
-    
+
     player2TempScore = 0;
     player2TotalScore = 0
 
@@ -110,6 +110,6 @@ function newGameFunc(){
 
     player1TotalScoreDom.textContent = "0"
     player2TotalScoreDom.textContent = "0"
-    
+
     diceImage.src = `./assets/${1}.webp`
 }
