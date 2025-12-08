@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(#e7eaea,#0669db);
+    font-family: "Arimo", sans-serif;
+}
+
+.main-game-wrapper{
+    height: 600px;
+    width: 800px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-container{
+    height: 100%;
+    width: 100%;
+    background-color:  rgb(125, 156, 206);
+}
+.left-container{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+.right-container{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+.active-player{
+    background-color: rgb(40, 81, 148);
+}
+
+.playerNameCurrentScore{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.playerNameCurrentScore .playerName{
+    text-transform: uppercase;
+}
+.playerNameCurrentScore .playerCurrentScore{
+    font-size: 60px;
+}
+.playerTotalScoreBox{
+    background-color: rgb(234, 232, 232);
+    padding: 20px 40px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
