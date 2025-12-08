@@ -14,11 +14,10 @@ body{
 }
 
 .main-game-wrapper{
-    height: 600px;
+    height: 500px;
     width: 800px;
     border-radius: 10px;
     overflow: hidden;
-    background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,7 +46,7 @@ body{
     text-align: center;
 }
 .active-player{
-    background-color: rgb(40, 81, 148);
+    background-color: rgb(40, 81, 148) !important;
 }
 
 .playerNameCurrentScore{
@@ -93,6 +92,6 @@ body{
         cursor: pointer;
     }
 }
-.diceImage img{
+.diceImageBox img{
     width: 60%;
 }
