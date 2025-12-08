@@ -58,6 +58,7 @@ function holdDiceFun() {
         if (player1TotalScore >= 20) {
             alert("player 1 win")
             disableGameBtns()
+            return
         }
 
     } else {
@@ -67,6 +68,7 @@ function holdDiceFun() {
         if (player2TotalScore >= 20) {
             alert("player 2 win")
             disableGameBtns()
+            return
         }
     }
     playerTurn = !playerTurn;
@@ -85,7 +87,29 @@ function currentPlayer() {
 }
 
 function disableGameBtns() {
-    document.querySelectorAll(".game-options button").forEach((btn) => {
+    document.querySelectorAll(".gameBtns button").forEach((btn) => {
         btn.disabled = true;
     })
+}
+
+
+function newGameFunc(){
+     document.querySelectorAll(".gameBtns button").forEach((btn) => {
+        btn.disabled = false;
+    })
+    playerTurn = true;
+    currentPlayer()
+    player1TempScore = 0
+    player1TotalScore = 0
+    
+    player2TempScore = 0;
+    player2TotalScore = 0
+
+    player1CurrentScore.textContent = "0"
+    player2CurrentScore.textContent = "0"
+
+    player1TotalScoreDom.textContent = "0"
+    player2TotalScoreDom.textContent = "0"
+    
+    diceImage.src = `./assets/${1}.webp`
 }
