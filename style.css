@@ -163,6 +163,7 @@ nav{
     border-radius: 10px;
     border: none;
     padding: 10px 20px;
+    font-size: 16px;
 }
 .infoandNames input{
     padding: 8px 15px;
@@ -175,3 +176,6 @@ nav{
     padding:10px 0px;
     font-size: 22px;
 }
+
+
+

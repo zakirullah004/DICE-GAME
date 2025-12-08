@@ -25,6 +25,8 @@ let player2TempScore = 0
 let player1TotalScore = 0
 let player2TotalScore = 0
 
+let showWinScore = document.querySelector("#winScore");
+showWinScore.textContent = `${Number(winnigScore.value) || 30}`
 
 function rollDiceFun() {
 
@@ -153,6 +155,7 @@ function savePlayersName() {
     } else {
         alert("please fill all feilds")
     }
+    showWinScore.textContent = `${Number(winnigScore.value) || 30}`
 
 }
 
