@@ -22,48 +22,48 @@
     </nav>
 
     <div class="infoandNames">
-                <div class="howtoPlay">
-                    <i onclick="closeSideBar()" id="crossSideBar" class="fa-solid fa-x"></i>
+        <div class="howtoPlay">
+            <i onclick="closeSideBar()" id="crossSideBar" class="fa-solid fa-x"></i>
 
-                    <h2 style="margin-bottom: 20px;">How to Play the Dice Game 🎲</h2>
+            <h2 style="margin-bottom: 20px;">How to Play the Dice Game 🎲</h2>
 
-                    <p><strong>1. Roll the Dice</strong><br>
-                        Click the <b>Roll</b> button. A random number from 1–6 appears.</p>
+            <p><strong>1. Roll the Dice</strong><br>
+                Click the <b>Roll</b> button. A random number from 1–6 appears.</p>
 
-                    <p><strong>2. If you roll 2–6</strong><br>
-                        The number is added to your <b>current score</b>. You may continue rolling.</p>
+            <p><strong>2. If you roll 2–6</strong><br>
+                The number is added to your <b>current score</b>. You may continue rolling.</p>
 
-                    <p><strong>3. If you roll a 1 ❗</strong><br>
-                        Your current score becomes <b>0</b> and your turn ends. The next player starts.</p>
+            <p><strong>3. If you roll a 1 ❗</strong><br>
+                Your current score becomes <b>0</b> and your turn ends. The next player starts.</p>
 
-                    <p><strong>4. Hold Score</strong><br>
-                        Click the <b>Hold</b> button to add your current score to your total score, then switch player.
-                    </p>
+            <p><strong>4. Hold Score</strong><br>
+                Click the <b>Hold</b> button to add your current score to your total score, then switch player.
+            </p>
 
-                    <p><strong>5. Win Condition 🏆</strong><br>
-                        First player to reach <b id="winScore">winning points</b> wins the game.</p>
+            <p><strong>5. Win Condition 🏆</strong><br>
+                First player to reach <b id="winScore">winning points</b> wins the game.</p>
 
-                    <p><strong>6. Reset Game</strong><br>
-                        Press <b>New Game</b> to set all scores back to 0.</p>
+            <p><strong>6. Reset Game</strong><br>
+                Press <b>New Game</b> to set all scores back to 0.</p>
 
-                    <p style="margin-top: 15px; font-style: italic;">Tip: Avoid rolling 1 and plan when to hold!</p>
-                </div>
-                <div>
-                    <div>
-                    <label for="player1">Player 1 Name:</label>
-                    <input type="text" id="player1">
-                </div>
-                <div style="margin-top: 5px;">
-                    <label for="player2">Player 2 Name:</label>
-                    <input type="text" id="player2">
-                </div>
-                </div>
-                <div>
-                    <label for="winnigScore">Set Winning Score</label>
-                    <input type="text" id="winnigScore">
-                </div>
-                <button onclick="savePlayersName()">Save</button>
+            <p style="margin-top: 15px; font-style: italic;">Tip: Avoid rolling 1 and plan when to hold!</p>
+        </div>
+        <div>
+            <div>
+                <label for="player1">Player 1 Name:</label>
+                <input type="text" id="player1">
             </div>
+            <div style="margin-top: 5px;">
+                <label for="player2">Player 2 Name:</label>
+                <input type="text" id="player2">
+            </div>
+        </div>
+        <div>
+            <label for="winnigScore">Set Winning Score</label>
+            <input type="text" id="winnigScore">
+        </div>
+        <button onclick="savePlayersName()">Save</button>
+    </div>
 
     <div id="main-game-wrapper">
 
@@ -76,16 +76,36 @@
                 <p>TOTAL</p>
                 <h2 id="player1TotalScore">0</h2>
             </div>
+            <div class="gameOptionsMobile game-options-mobilePlayer1">
+                <div class="gamePlayingBtns">
+                    <div class="roleDiceBtn">
+                        <button id="rolldiceBtn" onclick="rollDiceFun()">ROLL DICE</button>
+                    </div>
+                    <div class="holdDiceBtn">
+                        <button id="holdDiceBtn" onclick="holdDiceFun()">HOLD</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="game-container right-container">
             <div id="player2info" class="playerNameCurrentScore">
-                <h1 class="playerName" id="player2Name">Player 2</h1>
+                <h1 class="playerName" id="player2Name">Player 0</h1>
                 <h1 class="playerCurrentScore" id="player2CurrentScore">0</h1>
             </div>
             <div class="playerTotalScoreBox">
                 <p>TOTAL</p>
                 <h2 id="player2TotalScore">0</h2>
+            </div>
+            <div class="gameOptionsMobile game-options-mobilePlayer2">
+                <div class="gamePlayingBtns">
+                    <div class="roleDiceBtn">
+                        <button id="rolldiceBtn" onclick="rollDiceFun()">ROLL DICE</button>
+                    </div>
+                    <div class="holdDiceBtn">
+                        <button id="holdDiceBtn" onclick="holdDiceFun()">HOLD</button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -102,7 +122,17 @@
             </div>
         </div>
 
+        <div class="mobileDiceImageBox">
+            <img id="mobileDiceImg" src="./assets/1.webp" alt="">
+        </div>
+
+        <div class="newGameMobile">
+                <button onclick="newGameFunc()" id="newGameBtn">New Game</button>
+        </div>
+
     </div>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="app.js"></script>

@@ -10,6 +10,7 @@ let player2TotalScoreDom = document.getElementById("player2TotalScore")
 
 
 let diceImage = document.querySelector("#diceImage")
+let mobileDiceImg = document.getElementById("mobileDiceImg")
 
 let player1 = document.getElementById("player1")
 let player2 = document.getElementById("player2")
@@ -25,13 +26,17 @@ let player2TempScore = 0
 let player1TotalScore = 0
 let player2TotalScore = 0
 
+let gameoptionsmobilePlayer1 = document.querySelector(".game-options-mobilePlayer1")
+let gameoptionsmobilePlayer2 = document.querySelector(".game-options-mobilePlayer2")
+
 let showWinScore = document.querySelector("#winScore");
 showWinScore.textContent = `${Number(winnigScore.value) || 30}`
 
 function rollDiceFun() {
 
     let diceNumber = Math.ceil(Math.random() * 6)
-    diceImage.src = `/assets/${diceNumber}.webp`
+    diceImage.src = `/assets/${diceNumber}.webp`;
+    mobileDiceImg.src = `/assets/${diceNumber}.webp`
     // console.log(diceNumber);
     if (playerTurn) {
         if (diceNumber != 1) {
@@ -42,6 +47,7 @@ function rollDiceFun() {
             player1CurrentScore.textContent = diceNumber;
             playerTurn = !playerTurn
             currentPlayer()
+            mobilePlayerBtnActivation()
         }
     } else {
         if (diceNumber != 1) {
@@ -53,6 +59,7 @@ function rollDiceFun() {
             player2CurrentScore.textContent = diceNumber;
             playerTurn = !playerTurn
             currentPlayer()
+            mobilePlayerBtnActivation()
         }
     }
 }
@@ -66,6 +73,7 @@ function holdDiceFun() {
         if (player1TotalScore >= Number(winnigScore.value || 30)) {
             Swal.fire(`${player1.value ? `${player1Dom.textContent} Wins` : `player ${playerTurn + 0} Wins`}`);
             disableGameBtns()
+            disabledMobileBtns()
             return
         }
 
@@ -77,11 +85,13 @@ function holdDiceFun() {
         if (player2TotalScore >= Number(winnigScore.value || 30)) {
             Swal.fire(`${player2.value ? `${player2Dom.textContent} Wins` : `player ${playerTurn + 0} Wins`}`);
             disableGameBtns()
+            disabledMobileBtns()
             return
         }
     }
     playerTurn = !playerTurn;
     currentPlayer();
+    mobilePlayerBtnActivation();
 }
 
 
@@ -107,6 +117,7 @@ function currentPlayer() {
         document.querySelector(".right-container").classList.add("active-player")
     }
 
+    mobilePlayerBtnActivation()
 }
 
 function disableGameBtns() {
@@ -122,6 +133,7 @@ function newGameFunc() {
     })
     playerTurn = true;
     currentPlayer()
+    enabledMobileBtns()
     player1TempScore = 0
     player1TotalScore = 0
 
@@ -135,6 +147,7 @@ function newGameFunc() {
     player2TotalScoreDom.textContent = "0"
 
     diceImage.src = `./assets/${1}.webp`
+     mobileDiceImg.src = `/assets/${1}.webp`
 }
 
 
@@ -158,6 +171,36 @@ function savePlayersName() {
     showWinScore.textContent = `${Number(winnigScore.value) || 30}`
 
 }
+
+function enabledMobileBtns(){
+    gameoptionsmobilePlayer1.querySelectorAll("button").forEach((btn)=>{
+        btn.disabled = false
+    })
+     gameoptionsmobilePlayer2.querySelectorAll("button").forEach((btn)=>{
+        btn.disabled = false
+    })
+}
+
+
+function disabledMobileBtns(){
+    gameoptionsmobilePlayer1.querySelectorAll("button").forEach((btn)=>{
+        btn.disabled = true
+    })
+     gameoptionsmobilePlayer2.querySelectorAll("button").forEach((btn)=>{
+        btn.disabled = true
+    })
+}
+
+function mobilePlayerBtnActivation(){
+    if(playerTurn){
+        document.querySelector('.game-options-mobilePlayer1').style.display = "flex"
+        document.querySelector('.game-options-mobilePlayer2').style.display = "none"
+    }else{
+        document.querySelector('.game-options-mobilePlayer1').style.display = "none"
+        document.querySelector('.game-options-mobilePlayer2').style.display = "flex"
+    }
+}
+mobilePlayerBtnActivation()
 
 let gameWrapper = document.querySelector("#main-game-wrapper")
 let leftContainer = document.querySelector(".left-container")

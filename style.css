@@ -1,24 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 
-body{
+body {
     min-height: 100vh;
     display: grid;
     place-items: center;
-    background: linear-gradient(#e7eaea,#0669db);
+    background: linear-gradient(#e7eaea, #0669db);
     font-family: "Arimo", sans-serif;
 }
 
-.bodyDark{
-    background: linear-gradient(#656464,#212121) !important;
+.bodyDark {
+    background: linear-gradient(#656464, #212121) !important;
 }
 
-#main-game-wrapper{
+#main-game-wrapper {
     height: 500px;
     width: 800px;
     border-radius: 10px;
@@ -27,18 +28,21 @@ body{
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color:  rgb(125, 156, 206);
+    background-color: rgb(125, 156, 206);
     /* z-index: -1; */
 }
 
-.game-container{
+.game-container {
     height: 100%;
     width: 100%;
+    position: relative;
 }
-.game-dark{
+
+.game-dark {
     background-color: #707070 !important;
 }
-.left-container{
+
+.left-container {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -46,7 +50,8 @@ body{
     align-items: center;
     text-align: center;
 }
-.right-container{
+
+.right-container {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -54,24 +59,30 @@ body{
     align-items: center;
     text-align: center;
 }
-.active-player{
+
+.active-player {
     background-color: rgb(40, 81, 148) !important;
 }
-.active-player-dark{
-    background-color:#abaaaa !important;
+
+.active-player-dark {
+    background-color: #abaaaa !important;
 }
-.playerNameCurrentScore{
+
+.playerNameCurrentScore {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.playerNameCurrentScore .playerName{
+
+.playerNameCurrentScore .playerName {
     text-transform: uppercase;
 }
-.playerNameCurrentScore .playerCurrentScore{
+
+.playerNameCurrentScore .playerCurrentScore {
     font-size: 60px;
 }
-.playerTotalScoreBox{
+
+.playerTotalScoreBox {
     background-color: rgb(234, 232, 232);
     padding: 20px 40px;
     border-radius: 8px;
@@ -80,7 +91,7 @@ body{
     gap: 10px;
 }
 
-.game-options{
+.game-options {
     position: absolute;
     height: 100%;
     display: flex;
@@ -90,30 +101,33 @@ body{
     text-align: center;
 }
 
-.gameBtns{
+.gameBtns {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-.game-options button{
+
+.game-options button {
     padding: 10px 20px;
     border-radius: 8px;
     border: none;
-    &:hover{
+
+    &:hover {
         cursor: pointer;
     }
 }
-.diceImageBox img{
+
+.diceImageBox img {
     width: 60%;
 }
 
 
-nav{
+nav {
     width: 100%;
     position: fixed;
     top: 0;
     display: flex;
-    justify-content:end;
+    justify-content: end;
     align-items: center;
     align-self: stretch;
     justify-self: stretch;
@@ -122,28 +136,30 @@ nav{
     gap: 25px;
 }
 
-.themeBtn img{
+.themeBtn img {
     width: 30px;
-    &:hover{
+
+    &:hover {
         cursor: pointer;
     }
 }
 
-.settinBtn i{
+.settinBtn i {
     font-size: 24px;
-     &:hover{
+
+    &:hover {
         cursor: pointer;
     }
 }
 
 
-.infoandNames{
+.infoandNames {
     background-color: rgb(255, 255, 255);
-    position:fixed;
+    position: fixed;
     height: 100vh;
     top: 0;
     width: 500px;
-    right:-800px;
+    right: -800px;
     z-index: 111;
     height: 100%;
     border-top-left-radius: 10px;
@@ -156,7 +172,8 @@ nav{
     padding: 0px 10px;
     transition: all .7s;
 }
-.infoandNames button{
+
+.infoandNames button {
     width: 50%;
     background-color: rgb(40, 81, 148);
     color: whitesmoke;
@@ -165,17 +182,144 @@ nav{
     padding: 10px 20px;
     font-size: 16px;
 }
-.infoandNames input{
+
+.infoandNames input {
     padding: 8px 15px;
     border: 1px solid #323232;
     border-radius: 5px;
     text-transform: uppercase;
 }
-#crossSideBar{
+
+#crossSideBar {
     /* position: absolute; */
-    padding:10px 0px;
+    padding: 10px 0px;
     font-size: 22px;
 }
 
+.gamePlayingBtns {
+    display: flex;
+    gap: 10px;
+}
 
+.gameOptionsMobile button {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 8px;
+}
 
+@media screen and (min-width:800px) {
+    .game-options-mobilePlayer1 {
+        display: none !important;
+    }
+
+    .game-options-mobilePlayer2 {
+        display: none !important;
+    }
+    #mobileDiceImg{
+        display: none !important;
+    }
+    .newGameMobile{
+        display: none !important;
+    }
+}
+
+@media screen and (max-width:800px) {
+
+    #main-game-wrapper {
+        width: 100vw !important;
+        height: 100vh;
+        flex-direction: column;
+        border-radius: 0px;
+        align-items: stretch;
+        position: relative;
+    }
+    
+    .game-container{
+        padding: 60px 0px;
+    }
+     .left-container {
+        z-index: 111;
+        transform: rotate(180deg);
+    }
+
+    .game-options-mobilePlayer2 .gamePlayingBtns {
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+    }
+
+    .game-options-mobilePlayer1 .gamePlayingBtns {
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+    }
+     .game-options-mobilePlayer1 button {
+        padding: 5px 10px;
+        border-radius: 10px;
+        border: none;
+        transition: all 0.3s;
+        &:active{
+            transform: scale(0.9);
+        }
+    }
+    .game-options-mobilePlayer2 button {
+        padding: 5px 10px;
+        border-radius: 10px;
+        border: none;
+        transition: all 0.3s;
+        &:active{
+            transform: scale(0.9);
+        }
+    }
+    nav {
+        background-color: white;
+        z-index: 11111;
+        padding: 10px;
+        padding-right: 20px;
+        gap: 5px;
+        justify-content: space-between;
+        position: fixed;
+    }
+
+    .infoandNames {
+        width: 300px;
+        font-size: 16px;
+        z-index: 1111111;
+        gap: 3px;
+    }
+
+    .game-options {
+        display: none;
+    }
+    .playerName{
+        font-size: 22px;
+    }
+    .playerCurrentScore{
+        font-size: 42px !important;
+    }
+    .mobileDiceImageBox{
+        position: absolute;
+        z-index: 111;
+    }
+    #mobileDiceImg{
+        width: 40%;
+        margin-left: 110%;
+    }
+    .newGameMobile{
+        position: absolute;
+        z-index: 111;
+        transform: rotate(90deg);
+        left: -40px;
+    }
+    .newGameMobile button{
+        padding:30px 30px !important;
+        border: none;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        font-size: 14px;
+        transition: all 0.3s;
+        &:active{
+            transform: scale(0.9);
+        }
+    }
+}
