@@ -87,13 +87,6 @@ nav {
     }
 }
 
-.settinBtn i {
-    font-size: 24px;
-
-    &:hover {
-        cursor: pointer;
-    }
-}
 .bodyDark {
     background: linear-gradient(#656464, #212121) !important;
 }

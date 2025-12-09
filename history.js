@@ -2,11 +2,11 @@
 
 let winnersList = document.getElementById("winnersList")
 
-let gameHistory = JSON.parse(localStorage.getItem("gameHistory")) || 0
+let gameHistory = JSON.parse(localStorage.getItem("gameHistory")) || []
 
-console.log(gameHistory);
-
-
+if (gameHistory.length === 0) {
+    winnersList.innerHTML = "<h2 style='text-align:center;'>No Games played yet</h2>";
+}
 function winnigRecords() {
     gameHistory.forEach((record) => {
         let p = document.createElement("p")

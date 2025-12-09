@@ -18,7 +18,33 @@ let player2 = document.getElementById("player2")
 let player1Dom = document.getElementById("player1Name")
 let player2Dom = document.getElementById("player2Name")
 
+let savedP1 = localStorage.getItem("player1Name");
+let savedP2 = localStorage.getItem("player2Name");
+let savedScore = localStorage.getItem("winningScore");
+
+console.log(savedP1);
+console.log(savedP2);
+
 let winnigScore = document.getElementById("winnigScore")
+
+
+let showWinScore = document.querySelector("#winScore");
+
+function loadData() {
+
+    let savedP1 = localStorage.getItem("player1Name");
+    let savedP2 = localStorage.getItem("player2Name");
+    let savedScore = localStorage.getItem("winningScore");
+    if (savedP1 && savedP2 && savedScore) {
+        player1Dom.textContent = savedP1;
+        player2Dom.textContent = savedP2;
+        player1.value = savedP1
+        player2.value = savedP2
+        winnigScore.value = savedScore;
+        showWinScore.textContent = savedScore;
+    }
+}
+loadData()
 
 let player1TempScore = 0
 let player2TempScore = 0
@@ -29,9 +55,8 @@ let player2TotalScore = 0
 let gameoptionsmobilePlayer1 = document.querySelector(".game-options-mobilePlayer1")
 let gameoptionsmobilePlayer2 = document.querySelector(".game-options-mobilePlayer2")
 
-let playersWinnigList = [];
+let playersWinnigList = JSON.parse(localStorage.getItem("gameHistory")) || [];
 
-let showWinScore = document.querySelector("#winScore");
 showWinScore.textContent = `${Number(winnigScore.value) || 30}`
 
 function rollDiceFun() {
@@ -67,14 +92,16 @@ function rollDiceFun() {
 }
 
 function holdDiceFun() {
+    let savedP1 = localStorage.getItem("player1Name");
+    let savedP2 = localStorage.getItem("player2Name");
     if (playerTurn) {
         player1TotalScore += player1TempScore;
         player1TempScore = 0;
         player1TotalScoreDom.textContent = player1TotalScore
 
         if (player1TotalScore >= Number(winnigScore.value || 30)) {
-            Swal.fire(`${player1.value ? `${player1Dom.textContent} Wins` : `player ${playerTurn + 0} Wins`}`);
-            playersWinnigList.push(`${player1.value ? `${player1Dom.textContent} Win from ${player2Dom.textContent}` : `player ${playerTurn + 0} Wins form ${playerTurn + 0}`}`)
+            Swal.fire(`${player1.value ? `${savedP1} Wins` : `player ${playerTurn + 0} Wins`}`);
+            playersWinnigList.push(`${player1.value ? `${savedP1} Win from ${savedP2}` : `player ${1} Wins form ${0}`}`)
             localStorage.setItem("gameHistory", JSON.stringify(playersWinnigList))
             disableGameBtns()
             disabledMobileBtns()
@@ -87,8 +114,8 @@ function holdDiceFun() {
         player2TotalScoreDom.textContent = player2TotalScore
 
         if (player2TotalScore >= Number(winnigScore.value || 30)) {
-            Swal.fire(`${player2.value ? `${player2Dom.textContent} Wins` : `player ${playerTurn + 0} Wins`}`);
-            playersWinnigList.push(`${player2.value ? `${player2Dom.textContent} Win from ${player1Dom.textContent}` : `player ${playerTurn + 0} Wins form ${playerTurn + 0}`}`)
+            Swal.fire(`${player2.value ? `${savedP2} Wins` : `player ${0} Wins`}`);
+            playersWinnigList.push(`${player2.value ? `${savedP2} Win from ${savedP1}` : `player ${0} Wins form ${1}`}`)
             localStorage.setItem("gameHistory", JSON.stringify(playersWinnigList))
             disableGameBtns()
             disabledMobileBtns()
@@ -167,14 +194,17 @@ function closeSideBar() {
 
 function savePlayersName() {
     if (player1.value != "" && player2.value != "" && winnigScore.value != "") {
-        player1Dom.innerText = player1.value
-        player2Dom.innerText = player2.value
         document.querySelector(".infoandNames").style.right = "-800px"
+        localStorage.setItem("player1Name", player1.value);
+        localStorage.setItem("player2Name", player2.value);
+        localStorage.setItem("winningScore", winnigScore.value);
+        loadData()
 
     } else {
         alert("please fill all feilds")
     }
-    showWinScore.textContent = `${Number(winnigScore.value) || 30}`
+    // showWinScore.textContent = `${Number(winnigScore.value) || 30}
+
 
 }
 
