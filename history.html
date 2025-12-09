@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DICE | GAME history</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+
+    <link rel="stylesheet" href="history.css">
+</head>
+
+<body>
+    <nav>
+        <div>
+            <button id="linkBTn"><a id="history" href="index.html">Back to Game</a></button>
+        </div>
+        <div style="display: flex;gap: 1rem;">
+            <div class="themeBtn">
+                <!-- <img src="./assets/sun-bright-svgrepo-com.png" alt=""> -->
+                <img onclick="changeTheme()" id="themeChanger" src="./assets/half-moon-shape-svgrepo-com.png" alt="">
+            </div>
+            <div class="settinBtn">
+                <i onclick="settingBtn()" id="settingBtn" class="fa-solid fa-gear"></i>
+            </div>
+        </div>
+    </nav>
+
+    <div id="winnersList">
+
+    </div>
+
+
+    <script src="history.js"></script>
+</body>
+
+</html>

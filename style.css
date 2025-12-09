@@ -127,13 +127,35 @@ nav {
     position: fixed;
     top: 0;
     display: flex;
-    justify-content: end;
+    justify-content: space-around;
     align-items: center;
     align-self: stretch;
     justify-self: stretch;
     padding-top: 30px;
     padding-right: 100px;
     gap: 25px;
+}
+#linkBTn{
+    border: none;
+    background-color: rgb(7, 7, 180);
+    padding:5px 10px;
+    border-radius: 8px;
+}
+#history{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: #212121;
+    color: #fff;
+    &:hover{
+        cursor: pointer;
+    }
+}
+.linkBTnDark{
+    background-color:#323232 !important;
+}
+.historyDark{
+    color: #fff !important;
 }
 
 .themeBtn img {

@@ -29,6 +29,8 @@ let player2TotalScore = 0
 let gameoptionsmobilePlayer1 = document.querySelector(".game-options-mobilePlayer1")
 let gameoptionsmobilePlayer2 = document.querySelector(".game-options-mobilePlayer2")
 
+let playersWinnigList = [];
+
 let showWinScore = document.querySelector("#winScore");
 showWinScore.textContent = `${Number(winnigScore.value) || 30}`
 
@@ -72,6 +74,8 @@ function holdDiceFun() {
 
         if (player1TotalScore >= Number(winnigScore.value || 30)) {
             Swal.fire(`${player1.value ? `${player1Dom.textContent} Wins` : `player ${playerTurn + 0} Wins`}`);
+            playersWinnigList.push(`${player1.value ? `${player1Dom.textContent} Win from ${player2Dom.textContent}` : `player ${playerTurn + 0} Wins form ${playerTurn + 0}`}`)
+            localStorage.setItem("gameHistory", JSON.stringify(playersWinnigList))
             disableGameBtns()
             disabledMobileBtns()
             return
@@ -84,6 +88,8 @@ function holdDiceFun() {
 
         if (player2TotalScore >= Number(winnigScore.value || 30)) {
             Swal.fire(`${player2.value ? `${player2Dom.textContent} Wins` : `player ${playerTurn + 0} Wins`}`);
+            playersWinnigList.push(`${player2.value ? `${player2Dom.textContent} Win from ${player1Dom.textContent}` : `player ${playerTurn + 0} Wins form ${playerTurn + 0}`}`)
+            localStorage.setItem("gameHistory", JSON.stringify(playersWinnigList))
             disableGameBtns()
             disabledMobileBtns()
             return
@@ -147,7 +153,7 @@ function newGameFunc() {
     player2TotalScoreDom.textContent = "0"
 
     diceImage.src = `./assets/${1}.webp`
-     mobileDiceImg.src = `/assets/${1}.webp`
+    mobileDiceImg.src = `/assets/${1}.webp`
 }
 
 
@@ -172,30 +178,30 @@ function savePlayersName() {
 
 }
 
-function enabledMobileBtns(){
-    gameoptionsmobilePlayer1.querySelectorAll("button").forEach((btn)=>{
+function enabledMobileBtns() {
+    gameoptionsmobilePlayer1.querySelectorAll("button").forEach((btn) => {
         btn.disabled = false
     })
-     gameoptionsmobilePlayer2.querySelectorAll("button").forEach((btn)=>{
+    gameoptionsmobilePlayer2.querySelectorAll("button").forEach((btn) => {
         btn.disabled = false
     })
 }
 
 
-function disabledMobileBtns(){
-    gameoptionsmobilePlayer1.querySelectorAll("button").forEach((btn)=>{
+function disabledMobileBtns() {
+    gameoptionsmobilePlayer1.querySelectorAll("button").forEach((btn) => {
         btn.disabled = true
     })
-     gameoptionsmobilePlayer2.querySelectorAll("button").forEach((btn)=>{
+    gameoptionsmobilePlayer2.querySelectorAll("button").forEach((btn) => {
         btn.disabled = true
     })
 }
 
-function mobilePlayerBtnActivation(){
-    if(playerTurn){
+function mobilePlayerBtnActivation() {
+    if (playerTurn) {
         document.querySelector('.game-options-mobilePlayer1').style.display = "flex"
         document.querySelector('.game-options-mobilePlayer2').style.display = "none"
-    }else{
+    } else {
         document.querySelector('.game-options-mobilePlayer1').style.display = "none"
         document.querySelector('.game-options-mobilePlayer2').style.display = "flex"
     }
@@ -205,18 +211,23 @@ mobilePlayerBtnActivation()
 let gameWrapper = document.querySelector("#main-game-wrapper")
 let leftContainer = document.querySelector(".left-container")
 let righttContainer = document.querySelector(".right-container")
-
+let linkBTn = document.getElementById("linkBTn")
+let history = document.getElementById("history")
 
 let currentThemeSrc = document.getElementById("themeChanger");
 if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("bodyDark");
     gameWrapper.classList.add("game-dark")
     leftContainer.classList.add("active-player-dark")
+    linkBTn.classList.add("linkBTnDark")
+    history.classList.add("historyDark")
     currentThemeSrc.src = "./assets/sun-bright-svgrepo-com.png";
 } else {
     document.body.classList.remove("bodyDark");
     currentThemeSrc.src = "./assets/half-moon-shape-svgrepo-com.png";
     gameWrapper.classList.remove("game-dark")
+    linkBTn.classList.remove("linkBTnDark")
+    history.classList.remove("historyDark")
     leftContainer.classList.remove("active-player-dark")
 }
 
@@ -229,12 +240,16 @@ function changeTheme() {
         document.body.classList.remove("bodyDark");
         gameWrapper.classList.remove("game-dark")
         leftContainer.classList.remove("active-player-dark")
+        linkBTn.classList.remove("linkBTnDark")
+        history.classList.remove("historyDark")
         localStorage.setItem("theme", "light");
     } else {
         currentThemeSrc.src = "./assets/sun-bright-svgrepo-com.png";
         document.body.classList.add("bodyDark");
         gameWrapper.classList.add("game-dark")
         leftContainer.classList.add("active-player-dark")
+        linkBTn.classList.add("linkBTnDark")
+        history.classList.add("historyDark")
         localStorage.setItem("theme", "dark");
     }
 }
