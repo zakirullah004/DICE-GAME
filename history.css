@@ -15,21 +15,23 @@ body {
     font-family: "Arimo", sans-serif;
 }
 
-#winnersList{
+#winnersList {
     background-color: rgb(63, 117, 202);
-    padding:10px 0px;
+    padding: 10px 0px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: stretch;
     gap: 5px;
-    width: 500px;
+    width: 80vw;
 }
-.winnerListDark{
+
+.winnerListDark {
     background-color: #abaaaa !important;
 }
-#winnersList p{
+
+#winnersList p {
     border-top: 1px solid rgb(201, 201, 201);
     width: 100%;
     align-self: stretch;
@@ -39,7 +41,8 @@ body {
     word-spacing: 5px;
     font-weight: 500;
 }
-#winnersList p:last-child{
+
+#winnersList p:last-child {
     border-bottom: 1px solid rgb(201, 201, 201);
 }
 
@@ -56,26 +59,31 @@ nav {
     padding-right: 100px;
     gap: 25px;
 }
-#linkBTn{
+
+#linkBTn {
     border: none;
     background-color: rgb(7, 7, 180);
-    padding:5px 10px;
+    padding: 5px 10px;
     border-radius: 8px;
 }
-#history{
+
+#history {
     text-decoration: none;
     text-transform: uppercase;
     font-size: 20px;
     color: #212121;
     color: #fff;
-    &:hover{
+
+    &:hover {
         cursor: pointer;
     }
 }
-.linkBTnDark{
-    background-color:#323232 !important;
+
+.linkBTnDark {
+    background-color: #323232 !important;
 }
-.historyDark{
+
+.historyDark {
     color: #fff !important;
 }
 
@@ -89,4 +97,30 @@ nav {
 
 .bodyDark {
     background: linear-gradient(#656464, #212121) !important;
+}
+
+@media screen and (max-width:800px) {
+    #winnersList{
+        width: 90%;
+    }
+      nav {
+        background-color: white;
+        padding: 10px;
+        padding-right: 20px;
+        gap: 5px;
+        justify-content: space-between;
+        position: fixed;
+    }
+    #linkBTn {
+        padding: 5px 10px;
+    }
+
+    #history {
+        font-size: 16px;
+
+        &:hover {
+            cursor: none;
+        }
+    }
+
 }

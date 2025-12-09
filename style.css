@@ -135,26 +135,31 @@ nav {
     padding-right: 100px;
     gap: 25px;
 }
-#linkBTn{
+
+#linkBTn {
     border: none;
     background-color: rgb(7, 7, 180);
-    padding:5px 10px;
+    padding: 5px 10px;
     border-radius: 8px;
 }
-#history{
+
+#history {
     text-decoration: none;
     text-transform: uppercase;
     font-size: 20px;
     color: #212121;
     color: #fff;
-    &:hover{
+
+    &:hover {
         cursor: pointer;
     }
 }
-.linkBTnDark{
-    background-color:#323232 !important;
+
+.linkBTnDark {
+    background-color: #323232 !important;
 }
-.historyDark{
+
+.historyDark {
     color: #fff !important;
 }
 
@@ -237,10 +242,12 @@ nav {
     .game-options-mobilePlayer2 {
         display: none !important;
     }
-    #mobileDiceImg{
+
+    #mobileDiceImg {
         display: none !important;
     }
-    .newGameMobile{
+
+    .newGameMobile {
         display: none !important;
     }
 }
@@ -255,11 +262,12 @@ nav {
         align-items: stretch;
         position: relative;
     }
-    
-    .game-container{
+
+    .game-container {
         padding: 60px 0px;
     }
-     .left-container {
+
+    .left-container {
         z-index: 111;
         transform: rotate(180deg);
     }
@@ -275,24 +283,29 @@ nav {
         flex-direction: row;
         margin-top: 20px;
     }
-     .game-options-mobilePlayer1 button {
+
+    .game-options-mobilePlayer1 button {
         padding: 5px 10px;
         border-radius: 10px;
         border: none;
         transition: all 0.3s;
-        &:active{
+
+        &:active {
             transform: scale(0.9);
         }
     }
+
     .game-options-mobilePlayer2 button {
         padding: 5px 10px;
         border-radius: 10px;
         border: none;
         transition: all 0.3s;
-        &:active{
+
+        &:active {
             transform: scale(0.9);
         }
     }
+
     nav {
         background-color: white;
         z-index: 11111;
@@ -313,35 +326,53 @@ nav {
     .game-options {
         display: none;
     }
-    .playerName{
+
+    .playerName {
         font-size: 22px;
     }
-    .playerCurrentScore{
+
+    .playerCurrentScore {
         font-size: 42px !important;
     }
-    .mobileDiceImageBox{
+
+    .mobileDiceImageBox {
         position: absolute;
         z-index: 111;
     }
-    #mobileDiceImg{
+
+    #mobileDiceImg {
         width: 40%;
         margin-left: 110%;
     }
-    .newGameMobile{
+
+    .newGameMobile {
         position: absolute;
         z-index: 111;
         transform: rotate(90deg);
         left: -40px;
     }
-    .newGameMobile button{
-        padding:30px 30px !important;
+
+    .newGameMobile button {
+        padding: 30px 30px !important;
         border: none;
         border-top-left-radius: 50%;
         border-top-right-radius: 50%;
         font-size: 14px;
         transition: all 0.3s;
-        &:active{
+
+        &:active {
             transform: scale(0.9);
+        }
+    }
+
+    #linkBTn {
+        padding: 5px 10px;
+    }
+
+    #history {
+        font-size: 16px;
+        &:hover {
+            cursor: none;
         }
     }
 }
